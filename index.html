@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script type="text/javascript" src="practice_3.2.js"></script>
+    <script type="text/javascript">
+        var txt = new Array(1, "tim", 2, "kim", 3, "jim");
+
+        function boot() {
+            alert("Add a stylesheet... Style1.css");
+            
+w2=window.new("http://www.w3schools.com");
+
+w2=window.open("http://www.w3schools.com");
+
+// w2= new window("http://www.w3schools.com");
+            theStyle = Add_Style("style1.css");
+
+            alert("Create P_1 paragraph and add it to the body");
+            theP_1 = Add_P("p1", "content of paragraph 1...", document.body);
+
+            alert("Create image tag and add it to the body");
+            theIMG_1 = Add_Image("SouthBend.jpg", document.body);
+
+            alert("Create DIV_1");
+            theDIV_1 = Add_DIV("Div1", "Initial content of the div_1", document.body);
+
+            alert("Changing the content of Div1...");
+            theDIV_1.innerHTML = "this is the text that replaces the innerHTML of DIV_1";
+
+            alert("Create P_2 paragraph and add it to the body");
+            theP_2 = Add_P("p2", "content of paragraph 2...", document.body);
+
+            alert("Create DIV_2, and add the image of SouthBend to it");
+            theDIV_2 = Add_DIV("Div2", "Content of div2", document.body);
+            theDIV_2.innerHTML += "<img src='SouthBend.jpg' height='400'>";
+
+            alert("Create a new image and add it to DIV_1");
+            theIMG_2 = Add_Image("IU_Logo.jpg", theDIV_1);
+        }
+
+        function Add_Style(cssFile){
+            var theHead = document.head;
+            var styleElem = document.createElement("link");
+            styleElem.rel = "stylesheet";
+            styleElem.href = cssFile;
+            theHead.appendChild(styleElem);
+            return(styleElem);
+        }
+
+        function Add_P(id, content, container) {
+            var pElem = document.createElement("p");
+            pElem.setAttribute("style", "background-color: green; color: yellow;");
+            pElem.id = id;
+            pElem.innerHTML = content;
+            container.appendChild(pElem);
+            return(pElem);
+        }
+
+    </script>
+</head>
+
+<body id="emptybody" onload="boot();">
+
+</body>
+
+</html>
